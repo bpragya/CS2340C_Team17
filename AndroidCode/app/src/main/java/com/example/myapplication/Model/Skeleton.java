@@ -8,6 +8,8 @@ public class Skeleton implements Enemy {
     private int attackDamage;
     private int speed;
 
+    private int direction;
+
     public int getSpriteId() {
         return spriteId;
     }
@@ -52,8 +54,8 @@ public class Skeleton implements Enemy {
 
     @Override
     public void startPos() {
-        this.setX(100);
-        this.setY(100);
+        this.setX(600);
+        this.setY(1000);
     }
 
     // Enemy's attack pattern
@@ -65,10 +67,28 @@ public class Skeleton implements Enemy {
     @Override
     public void movement() {
         // Change this for the movement
-        if (this.getX() < 200) {
-            this.setX(this.getX() + 20);
-        } else if (this.getX() >= 200) {
-            this.setX((this.getX() - 20));
+        switch (direction) {
+            case 0:
+                // move up
+                this.setY(this.getY() - 21);
+                direction++;
+                break;
+            case 1:
+                // move down
+                this.setY(this.getY() + 21);
+                direction++;
+                break;
+            case 2:
+                // move left
+                this.setX(this.getX() - 21);
+                direction++;
+                break;
+            case 3:
+                this.setX(this.getX() + 21);
+                direction = 0;
+                break;
+            default:
+                break;
         }
     }
 }

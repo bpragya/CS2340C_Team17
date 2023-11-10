@@ -50,6 +50,7 @@ public class InitialGameScreenViewModel {
 
         if (keyCode == KeyEvent.KEYCODE_A) {
             player.setXCoordinate(player.getXCoordinate() - 10);
+
         }
         if (keyCode == KeyEvent.KEYCODE_D) {
             player.setXCoordinate(player.getXCoordinate() + 10);

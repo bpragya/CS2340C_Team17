@@ -223,6 +223,7 @@ public class InitialGameScreen extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // move player
         viewModel.movePlayer(keyCode);
+        skeletonSprite.bringToFront();
 
         return super.onKeyDown(keyCode, event);
     }
