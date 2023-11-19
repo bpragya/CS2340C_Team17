@@ -170,20 +170,21 @@ public class InitialGameScreenViewModel {
         return extraHealthPoints.getY();
     }
 
-    public void setSuperSpeedPowerUp(int X, int Y) {
-
-        superSpeed.
-    }
 
 
     public void powerUps() {
 
-        if (Player.getInstance().getX() >= extraHealthPoints.getX() && Player.getInstance().getX() <= extraHealthPoints.getX() + 10 &&
-                Player.getInstance().getY() >= extraHealthPoints.getY() && Player.getInstance().getX() <= extraHealthPoints.getY() + 10) { //TODO change nums if necessary
+        if (Player.getInstance().getX() >= extraHealthPoints.getX() &&
+                Player.getInstance().getX() <= extraHealthPoints.getX() + 10 &&
+                Player.getInstance().getY() >= extraHealthPoints.getY() &&
+                Player.getInstance().getY() <= extraHealthPoints.getY() + 10) { //TODO change nums if necessary
             extraHealthPoints.setPowerUps(true);
             //apply the decorator
             extraHealthPoints.action();
-        } //else if (Player.getInstance().getX() >= superSpeed.)
+        } //else if (Player.getInstance().getX() >= superSpeed.getXPosition() &&
+        //Player.getInstance().getX() <= superSpeed.getX() + 10 &&
+        // Player.getInstance().getY() >= superSpeed.getY() &&
+        // Player.getInstance().getY() <= superSpeed.getY() + 10)
     }
 
 

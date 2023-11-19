@@ -126,13 +126,14 @@ public class InitialGameScreen extends AppCompatActivity {
             viewModel.createWizard();
             enemies.put(wizard, viewModel.getWizard());
 
-            viewModel.setExtraHealthPoints(50, 50);
+            //viewModel.setExtraHealthPoints(50, 50);
             ImageView extraHealthPoints = instantiateImageViewForPowerUp(R.drawable.powerup);
-            extraHealthPoints.setX(viewModel.getExtraHealthPointsX());
-            extraHealthPoints.setY(viewModel.getExtraHealthPointsY());
+            //extraHealthPoints.setX(viewModel.getExtraHealthPointsX());
+            //extraHealthPoints.setY(viewModel.getExtraHealthPointsY());
 
-            viewModel.setSuperSpeedPowerUp(10, 20);
             ImageView superSpeed = instantiateImageViewForPowerUp(R.drawable.superspeed);
+            superSpeed.setX(600);
+            superSpeed.setY(1500);
 
             break;
         case 1:
