@@ -16,6 +16,7 @@ import com.example.myapplication.GameContext;
 import com.example.myapplication.Leaderboard;
 import com.example.myapplication.Model.EnemyController;
 import com.example.myapplication.Model.ExtraHealthPoints;
+import com.example.myapplication.Model.SuperSpeed;
 import com.example.myapplication.Model.Player;
 import com.example.myapplication.Physics.CollisionInfo;
 import com.example.myapplication.Physics.RoomManager;
@@ -35,16 +36,11 @@ import java.util.TimerTask;
 public class InitialGameScreen extends AppCompatActivity {
     private Player player = Player.getInstance();
     private Timer scoreTimer1;
-    private Timer scoreTimer2;
     private TextView scoreText;
-
     private int screenWidth;
     private int screenHeight;
-
     private InitialGameScreenViewModel viewModel;
-
     private RoomManager roomManager;
-
     private ImageView playerSprite;
 
     protected void rebuildUi() {
@@ -135,6 +131,8 @@ public class InitialGameScreen extends AppCompatActivity {
             extraHealthPoints.setX(viewModel.getExtraHealthPointsX());
             extraHealthPoints.setY(viewModel.getExtraHealthPointsY());
 
+            viewModel.setSuperSpeedPowerUp(10, 20);
+            ImageView superSpeed = instantiateImageViewForPowerUp(R.drawable.superspeed);
 
             break;
         case 1:

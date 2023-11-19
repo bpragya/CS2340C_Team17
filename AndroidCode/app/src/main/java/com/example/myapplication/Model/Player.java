@@ -27,6 +27,7 @@ public class Player implements CollisionResolutionStrategy {
     private int previousY = 0;
 
     private int spriteId;
+    private int speed;
 
 
     public String getName() {
@@ -158,6 +159,14 @@ public class Player implements CollisionResolutionStrategy {
 
     public void setWinner() {
         winner = true;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public int getSpeed() {
+        return speed;
     }
 
     public void setLoser() {

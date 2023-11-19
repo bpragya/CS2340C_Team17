@@ -2,6 +2,7 @@ package com.example.myapplication.ViewModel;
 
 import com.example.myapplication.Model.ExtraHealthPoints;
 import com.example.myapplication.Model.EnemyFreeze;
+import com.example.myapplication.Model.SuperSpeed;
 
 
 import android.view.KeyEvent;
@@ -12,6 +13,7 @@ import com.example.myapplication.Model.OlafController;
 import com.example.myapplication.Model.Player;
 import com.example.myapplication.Model.SkeletonController;
 import com.example.myapplication.Model.SlimeController;
+import com.example.myapplication.Model.SuperSpeed;
 import com.example.myapplication.Model.UndeadController;
 import com.example.myapplication.Model.WizardController;
 
@@ -25,13 +27,13 @@ public class InitialGameScreenViewModel {
     private EnemyController olaf;
     private EnemyController wizard;
 
-    private ExtraHealthPoints extraHealthPoints;
+    private ExtraHealthPoints extraHealthPoints = new ExtraHealthPoints(50, 50);
+    private SuperSpeed superSpeed = new SuperSpeed(10, 20);
+
     public InitialGameScreenViewModel() {
         this.player = Player.getInstance();
         this.player.setScore(100);
     }
-
-
 
     public Player getPlayer() {
         return player;
@@ -56,24 +58,26 @@ public class InitialGameScreenViewModel {
         }
     }
 
+
     public void movePlayer(int keyCode) {
         Player player = Player.getInstance();
         // prospect player coordinates
 
         int playerX = player.getXCoordinate();
         int playerY = player.getYCoordinate();
+        Player.getInstance().setSpeed(5);
 
         if (keyCode == KeyEvent.KEYCODE_A) {
-            player.setXCoordinate(player.getXCoordinate() - 10);
+            player.setXCoordinate(player.getXCoordinate() - Player.getInstance().getSpeed());
         }
         if (keyCode == KeyEvent.KEYCODE_D) {
-            player.setXCoordinate(player.getXCoordinate() + 10);
+            player.setXCoordinate(player.getXCoordinate() + Player.getInstance().getSpeed());
         }
         if (keyCode == KeyEvent.KEYCODE_W) {
-            player.setYCoordinate(player.getYCoordinate() - 10);
+            player.setYCoordinate(player.getYCoordinate() - Player.getInstance().getSpeed());
         }
         if (keyCode == KeyEvent.KEYCODE_S) {
-            player.setYCoordinate(player.getYCoordinate() + 10);
+            player.setYCoordinate(player.getYCoordinate() + Player.getInstance().getSpeed());
         }
     }
 
@@ -155,16 +159,23 @@ public class InitialGameScreenViewModel {
         enemyC.movement();
     }
 
+    //set the power up in the game
     public void setExtraHealthPoints(int X, int Y) {
         extraHealthPoints.setPosition(X, Y);
     }
-
     public int getExtraHealthPointsX() {
         return extraHealthPoints.getX();
     }
     public int getExtraHealthPointsY() {
         return extraHealthPoints.getY();
     }
+
+    public void setSuperSpeedPowerUp(int X, int Y) {
+
+        superSpeed.
+    }
+
+
     public void powerUps() {
 
         if (Player.getInstance().getX() >= extraHealthPoints.getX() && Player.getInstance().getX() <= extraHealthPoints.getX() + 10 &&
@@ -172,7 +183,7 @@ public class InitialGameScreenViewModel {
             extraHealthPoints.setPowerUps(true);
             //apply the decorator
             extraHealthPoints.action();
-        }
+        } //else if (Player.getInstance().getX() >= superSpeed.)
     }
 
 
