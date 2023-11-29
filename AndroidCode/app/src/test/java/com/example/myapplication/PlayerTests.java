@@ -9,6 +9,7 @@ import com.example.myapplication.Model.BasePowerUp;
 import com.example.myapplication.Model.BossController;
 import com.example.myapplication.Model.ExtraHealthPoints;
 import com.example.myapplication.Model.PowerUpInterface;
+import com.example.myapplication.Model.PowerupsEnemyFreeze;
 import com.example.myapplication.Model.SuperSpeed;
 import com.example.myapplication.R;
 import android.view.KeyEvent;
@@ -338,6 +339,20 @@ public class PlayerTests {
     public void testPlayerWithSuperSpeed() {
         PowerUpInterface playerWithSuperSpeed = new SuperSpeed(new BasePowerUp());
         assertEquals(Player.getInstance().getSpeed() + 40, playerWithSuperSpeed.powerUp());
+    }
+
+    @Test
+    public void testHasPowerHP() {
+        PowerUpInterface hp = new ExtraHealthPoints(new BasePowerUp());
+        hp.powerUp();
+        assertTrue(hp.getPowerUps());
+    }
+
+    @Test
+    public void testHasPowerFreeze() {
+        PowerUpInterface hp = new SuperSpeed(new BasePowerUp());
+        hp.powerUp();
+        assertTrue(hp.getPowerUps());
     }
 
 

@@ -18,4 +18,9 @@ public class ExtraHealthPoints extends PowerUps {
         havePowerUp = true;
         return Player.getInstance().getHealthPoints();
     }
+
+    @Override
+    public boolean getPowerUps() {
+        return havePowerUp;
+    }
 }

@@ -18,4 +18,9 @@ public class SuperSpeed extends PowerUps{
         havePowerUp = true;
         return Player.getInstance().getSpeed();
     }
+
+    @Override
+    public boolean getPowerUps() {
+        return havePowerUp;
+    }
 }
